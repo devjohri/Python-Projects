@@ -6,9 +6,6 @@ from threading import Thread
 # Initialize Pygame mixer
 pygame.mixer.init()
 
-# Load the alarm sound (you can replace this with your own audio file)
-mixer.music.load("C:/Users/devjo/Downloads/alarm-car-or-home-62554.mp3")
-
 # Load the Haar Cascade classifiers for face and eye detection
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 eye_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_eye.xml')
@@ -23,9 +20,6 @@ def eye_aspect_ratio(eye):
     C = abs(eye[0][0] - eye[3][0]) + abs(eye[0][1] - eye[3][1])
     ear = (A + B) / (2.0 * C)
     return ear
-
-def sound_alarm():
-    mixer.music.play()
 
 cap = cv2.VideoCapture(0)  # Use the default camera (change the index if needed)
 frame_counter = 0
